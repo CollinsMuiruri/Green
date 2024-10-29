@@ -20,6 +20,29 @@ def generate_access_token():
         return None
 
 
+def simulate_transaction(amount, phone_number):
+    """Simulates a C2B transaction."""
+    access_token = generate_access_token()
+    if not access_token:
+        return None
+
+    url = f"{settings.SAFARICOM_API_BASE_URL}/mpesa/c2b/v1/simulate"
+    headers = {
+        "Authorization": f"Bearer {access_token}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "ShortCode": settings.SAFARICOM_SHORTCODE,
+        "CommandID": "CustomerPayBillOnline",
+        "Amount": amount,
+        "Msisdn": phone_number,
+        "BillRefNumber": "TestTransaction"
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+    return response.json()
+
+
 def register_url():
     """Registers the callback URLs with the M-PESA API"""
     access_token = generate_access_token()
