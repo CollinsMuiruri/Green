@@ -1,8 +1,11 @@
+import logging
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .mpesa_api import simulate_transaction
 import json
+
+logger = logging.getLogger(__name__)
 
 def simulate_transaction_view(request):
     """Handles the simulation of an M-PESA C2B transaction."""
@@ -11,8 +14,9 @@ def simulate_transaction_view(request):
         phone_number = request.POST.get('phone_number')
         amount = request.POST.get('amount')
         
-        # Trigger the transaction
+        # Trigger the transaction and log the result
         result = simulate_transaction(amount, phone_number)
+        logger.debug("Transaction Result: %s", result)
     
     return render(request, 'simulate_transaction.html', {'result': result})
 

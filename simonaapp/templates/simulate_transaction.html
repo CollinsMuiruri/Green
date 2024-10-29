@@ -20,8 +20,8 @@
 
     {% if result %}
         <h2>Transaction Result</h2>
-        <p>Result Code: {{ result.ResultCode }}</p>
-        <p>Result Description: {{ result.ResultDesc }}</p>
+        <p>Result Code: {{ result.ResultCode|default:"N/A" }}</p>
+        <p>Result Description: {{ result.ResultDesc|default:"N/A" }}</p>
     {% endif %}
 </body>
 </html>

@@ -24,7 +24,7 @@ def simulate_transaction(amount, phone_number):
     """Simulates a C2B transaction."""
     access_token = generate_access_token()
     if not access_token:
-        return None
+        return {"ResultCode": 1, "ResultDesc": "Failed to obtain access token"}
 
     url = f"{settings.SAFARICOM_API_BASE_URL}/mpesa/c2b/v1/simulate"
     headers = {
@@ -39,8 +39,14 @@ def simulate_transaction(amount, phone_number):
         "BillRefNumber": "TestTransaction"
     }
 
-    response = requests.post(url, json=payload, headers=headers)
-    return response.json()
+    try:
+        response = requests.post(url, json=payload, headers=headers)
+        response.raise_for_status()
+        # Parse JSON response and return result
+        return response.json()
+    except requests.RequestException as e:
+        # Return a failure message if the request fails
+        return {"ResultCode": 1, "ResultDesc": f"Request failed: {str(e)}"}
 
 
 def register_url():
