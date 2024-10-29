@@ -35,8 +35,8 @@ def register_url():
     payload = {
         "ShortCode": settings.SAFARICOM_SHORTCODE,
         "ResponseType": "Completed",
-        "ConfirmationURL": "https://yourdomain.com/api/mpesa/confirmation",
-        "ValidationURL": "https://yourdomain.com/api/mpesa/validation"
+        "ConfirmationURL": "https://green-wv6k.onrender.com/api/mpesa/confirmation",
+        "ValidationURL": "https://green-wv6k.onrender.com/api/mpesa/validation"
     }
     
     response = requests.post(settings.SAFARICOM_REGISTER_URL_API, headers=headers, json=payload)
