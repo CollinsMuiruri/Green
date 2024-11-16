@@ -7,7 +7,7 @@
 <body>
     <h1>Simulate M-PESA Transaction</h1>
     
-    <form method="post">
+    <form method="POST">
         {% csrf_token %}
         <label for="phone_number">Phone Number:</label>
         <input type="text" id="phone_number" name="phone_number" required><br><br>
