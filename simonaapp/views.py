@@ -7,6 +7,7 @@ import json
 
 from .generateToken import get_access_token
 from .stkPush import initiate_stk_push
+from .callback import process_stk_callback
 
 # logger = logging.getLogger(__name__)
 

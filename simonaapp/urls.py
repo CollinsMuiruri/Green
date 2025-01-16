@@ -7,6 +7,6 @@ urlpatterns = [
     # path('simulate-transaction/', views.simulate_transaction_view, name='simulate_transaction'),
 
     path('accesstoken/', views.get_access_token, name='get_access_token'),
-    path('stkpush/', views.initiate_stk_push, name='get_access_token')
-
+    path('stkpush/', views.initiate_stk_push, name='get_access_token'),
+    path('callback/', views.process_stk_callback, name='process_stk_callback'),
 ]
