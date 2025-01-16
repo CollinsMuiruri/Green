@@ -15,7 +15,7 @@ def initiate_stk_push(request):
             amount = 1
             phone = "254717745223"
             process_request_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
-            callback_url = 'https://webhook.site/b9bbd91a-1057-4666-8ac2-c2b2cb865219'
+            callback_url = 'https://green-wv6k.onrender.com/callback/'
             passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
             business_short_code = '174379'
             timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
