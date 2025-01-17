@@ -14,7 +14,7 @@ def initiate_stk_push(request):
         if access_token:
             amount = 1
             phone = "254717745223"
-            process_request_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
+            process_request_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequestsllllllll/'
             callback_url = 'https://green-wv6k.onrender.com/callback/'
             passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
             business_short_code = '174379'
